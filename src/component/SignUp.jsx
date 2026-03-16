@@ -38,6 +38,11 @@ const SignUp = () => {
 
     setSuccess(response.data.message)
 
+    setUsername("")
+    setPassword("")
+    setEmail("")
+    setPhone("")
+
       
     } catch (error) {
 
