@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -10,6 +12,8 @@ const GetProducts = () => {
 const[loading,setLoading]=useState("")
 const[error,setError]=useState("")
 const[products,setProducts]=useState([])
+
+const navigate=useNavigate()
 
 const image_url="https://gideonk.alwaysdata.net/static/images/"
 
@@ -68,7 +72,7 @@ useEffect(()=>{
             <h5 className='text-success'>{product.product_name}</h5>
             <p className='text-secondary'>{product.product_description}</p>
             <p className='text-warning'>{product.product_cost}</p>
-            <input type="button" className='btn btn-secondary w-100' value="Make Payment"/>
+            <input type="button" className='btn btn-secondary w-100' value="Purchase Now" onClick={()=>navigate("/mpesa",{state:{product}})}/>
 
           </div>
 
